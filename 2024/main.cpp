@@ -4,6 +4,10 @@
 
 int main()
 {
+	time_it(solution_20_a, "input/20-example.txt", 0);
+	//time_it(solution_20_a, "input/20-input.txt", 0);
+	std::cout << std::endl;
+
 	time_it(solution_19_a, "input/19-example.txt", 6);
 	time_it(solution_19_a, "input/19-input.txt", 315);
 	time_it(solution_19_b, "input/19-example.txt", 16);
@@ -16,8 +20,8 @@ int main()
 	time_it(solution_18_b, "input/18-input.txt", "56,29");
 	std::cout << std::endl;
 
-	time_it(solution_17_a, "input/17-example.txt", std::string{ "4,6,3,5,6,3,5,2,1,0" });
-	time_it(solution_17_a, "input/17-input.txt", std::string{ "7,6,5,3,6,5,7,0,4" });
+	time_it(solution_17_a, "input/17-example.txt", "4,6,3,5,6,3,5,2,1,0");
+	time_it(solution_17_a, "input/17-input.txt", "7,6,5,3,6,5,7,0,4");
 	time_it(solution_17_b, "input/17-testcase.txt", 117440);
 	std::cout << std::endl;
 
