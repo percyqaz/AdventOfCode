@@ -3,7 +3,8 @@ Is a yearly [advent calendar of code puzzles](https://adventofcode.com/) created
 
 After taking part a couple years in a row I have consolidated my solutions into one repo, some folders for a year therefore have their own READMEs or conventions
 
-All solutions are written by me with no external help or hints other than language references
+All solutions are written by me with no external help or hints other than language references (except where indicated)  
+I am very lazy though and will resort to plenty of underhanded tricks, hard-coding or hand-calculation in order to get it done
 
 Feel free to browse through my solutions, it should be self-explanatory how to run most of them, most need input data as a file in the same directory  
 In practice I don't imagine anyone but me running these, only looking and bewondering my massive brain
@@ -15,3 +16,4 @@ For some years I have taken on a particular challenge to make the easier puzzles
 2023: Same as 2022  
 2024: All solutions are in C++ (Compiled with MSVC), which I don't have much experience in  
 2025: No particular challenge :(  
+2015: Crank out solutions to everything quickly, priority is to get the stars (solved all days over a couple of evenings)
