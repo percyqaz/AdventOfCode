@@ -1,52 +1,25 @@
-data, target_molecule = open("input.txt").read().split("\n\n")
-replacements = []
+_, target_molecule = open("input.txt").read().split("\n\n")
 
-def string_to_elements(s):
-    output = '' 
-    for c in s:
-        if c.isupper():
-            output += " "
-        output += c
-    return output.strip().split()
+target_molecule = target_molecule.replace("Y", ",").replace("Rn", "(").replace("Ar", ")")
+print(target_molecule)
 
-for line in data.split("\n"):
-    split = line.split()
-    replacements.append((split[0], string_to_elements(split[2])))
+# idea: using HINT: What if Rn = '(', Y = ',', Ar = ')'
+# EVERY RULE can be treated as taking 1 element and generating 2, as long as we stop counting brackets as elements
+# Hence if we count the elements in the string and subtract 1, that = steps (we started with 1 e)
+# One catch: Some rules look like i.e C(F,F,F) which is 3 or 4 elements instead of 2!
+# But if you count commas (Ys originally) as -1, then these rules also "count" like they make 2 elements from 1
 
-reachable = {}
-for r in replacements:
-    for c in r[1]:
-        if r[0] not in reachable: reachable[r[0]] = set()
-        reachable[r[0]].add(c)
-#print(reachable)
+# Code below: Count capital letters (number of elements)
+# Ar and Rn do not count as they are ( )
+# Subract count of Y as they are ,
+# Count starts at -1 to compensate for starting with 1 element already
+# End of loop: Count is number of steps we have to have taken to generate the molecule
 
-for x in reachable:
-    for y in list(reachable[x]):
-        if y == x or y not in reachable: continue
-        for z in reachable[y]:
-            if z == x: continue
-            reachable[x].add(z)
-#print(reachable)
-
-#target_molecule = "HCaCaSiThSiThSiThCaCaF"
-target_molecule = string_to_elements(target_molecule)
-
-def find(current, steps, remaining):
-
-    if len(current) > len(remaining):
-        return
-
-    if remaining == []:
-        print(steps)
-        exit()
-
-    if current[0] == remaining[0]:
-        find(current[1:], steps, remaining[1:])
-        return
-
-    for rep, rep_with in replacements:
-        if current[0] == rep:
-            new_current = rep_with + current[1:]
-            find(new_current, steps + 1, remaining)
-
-find(["e"], 0, target_molecule)
+count = -1
+for c in target_molecule:
+    if c.isupper():
+        count += 1
+    if c == "(" or c == ")": continue
+    if c == ",":
+        count -= 1
+print(count)
