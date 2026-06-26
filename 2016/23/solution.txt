@@ -1,0 +1,101 @@
+a = 7
+b = a - 1
+
+loop:
+
+d = a
+a = d * b   # 42 first time round
+
+b -= 1 #5
+c = 2 * b #10
+
+tgl c !!!
+
+goto :label
+
+####
+Trace
+
+First loop a = 7 b = 6 d = 7
+-> a = 42
+-> b = 5
+-> c = 10
+tgl 10 does nothing
+
+Second loop a = 42 b = 5 d = 42
+-> a = 210
+-> b = 4
+-> c = 8
+inc c -> dec c
+
+3L a = 210 b = 4 d = 210
+a = 840
+b = 3
+c = 6
+inc d -> dec d
+
+4L a = 840 b = 3 d = 840
+a = 2520
+b = 2
+c = 4
+
+5L a = 2520 b = 2 d = 2520
+a = 5040
+b = 1
+c = 2
+
+this breaks the loop
+
+####
+
+
+cpy a b
+dec b
+:label
+cpy a d
+
+cpy 0 a
+ cpy b c
+  inc a
+  dec c
+  jnz c -2
+ dec d
+ jnz d -5
+ 
+dec b
+cpy b c
+cpy c d
+
+ dec d
+ inc c
+ jnz d -2
+ 
+tgl c
+cpy -16 c
+CPY 1 c
+
+# CA = 5040
+
+cpy 95 c
+CPY 95 d
+inc a
+DEC d
+jnz d -2
+DEC c
+jnz c -5
+
+-----
+5040 + 95 * 95
+
+# Part 2: a starts at 12
+# this will cause TGLs to still be out of range
+# so just the first loop is affected
+
+# before: 7x6x5x4x3x2
+# now: 12x11x10x9x8x7x6x5x4x3x2
+# + 95 * 95 at the end
+
+---------------
+## Overall solution: My puzzle input will calculate a! + 95 * 95
+# Source: worked it out by hand, notes are above
+# Knowing this, I used a calculator to get the right answers for part 1 and 2
