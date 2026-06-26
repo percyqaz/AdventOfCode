@@ -16,4 +16,19 @@ For some years I have taken on a particular challenge to make the easier puzzles
 2023: Same as 2022  
 2024: All solutions are in C++ (Compiled with MSVC), which I don't have much experience in  
 2025: No particular challenge :(  
-2015: Crank out solutions to everything quickly, priority is to get the stars (solved all days over a couple of evenings)
+2015: Crank out solutions to everything quickly, priority is to get the stars (solved all days over a couple of evenings)  
+2016: No particular challenge other than get them done, like 2015  
+
+|Year|Stars|
+|----|----|
+|2015|50/50|
+|2016|50/50|
+|2017|0/50|
+|2018|0/50|
+|2019|0/50|
+|2020|0/50|
+|2021|0/50|
+|2022|50/50|
+|2023|47/50|
+|2024|37/50|
+|2025|21/24|
